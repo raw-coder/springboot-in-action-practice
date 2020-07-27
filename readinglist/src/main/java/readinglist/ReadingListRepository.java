@@ -1,4 +1,4 @@
-package com.manning.readinglist;
+package readinglist;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

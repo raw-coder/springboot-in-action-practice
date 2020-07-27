@@ -1,4 +1,4 @@
-package com.manning.readinglist;
+package readinglist;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
