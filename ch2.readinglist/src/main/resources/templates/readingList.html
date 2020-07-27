@@ -7,7 +7,7 @@
 <body>
   <h2>Your Reading List</h2>
   <div th:unless="${#lists.isEmpty(books)}">
-    <dl th:each="book in ${books}">
+    <dl th:each="book : ${books}">
       <dt class="bookHeadLine">
         <span th:text="${book.title}">Title</span>
         <span th:text="${book.author}">Author</span>
@@ -31,10 +31,11 @@
     <label for="author">Author:</label>
     <input type="text" name="author" size="50"/>
     <br/>
-    <label for="isbn">Title:</label>
+    <label for="isbn">ISBN:</label>
     <input type="text" name="isbn" size="15"/>
     <br/>
     <label for="description">Description:</label>
+    <br/>
     <textarea name="description" cols="80" rows="5"></textarea>
     <br/>
     <input type="submit" value="Add Book"/>

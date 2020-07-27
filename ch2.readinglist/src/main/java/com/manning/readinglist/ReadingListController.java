@@ -1,5 +1,6 @@
 package com.manning.readinglist;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +14,9 @@ public class ReadingListController {
 
   private static final String reader = "steve";
 
-  private ReadingListRepository readingListRepository;
+  private final ReadingListRepository readingListRepository;
 
+  @Autowired
   public ReadingListController(ReadingListRepository readingListRepository) {
     this.readingListRepository = readingListRepository;
   }
