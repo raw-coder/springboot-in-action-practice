@@ -12,8 +12,6 @@ import java.util.List;
 @RequestMapping("/")
 public class ReadingListController {
 
-  private static final String reader = "steve";
-
   private final ReadingListRepository readingListRepository;
 
   @Autowired
@@ -22,16 +20,17 @@ public class ReadingListController {
   }
 
   @RequestMapping(method = RequestMethod.GET)
-  public String readerBooks(Model model) {
+  public String readerBooks(Reader reader, Model model) {
     List<Book> readingBookList = readingListRepository.findByReader(reader);
     if (readingBookList != null) {
       model.addAttribute("books", readingBookList);
+      model.addAttribute("reader", reader);
     }
     return "readingList";
   }
 
   @RequestMapping(method = RequestMethod.POST)
-  public String addToReadingList(Book book) {
+  public String addToReadingList(Reader reader, Book book) {
     book.setReader(reader);
     readingListRepository.save(book);
     return "redirect:/";
